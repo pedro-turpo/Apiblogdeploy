@@ -7,7 +7,7 @@ const PostImg = require('../models/postImg.model');
 
 const storage = require('../utils/firebase');
 const { ref, uploadBytes, getDownloadURL } = require('firebase/storage');
-const crypto = require('node:crypto');
+const crypto = require('crypto');
 
 exports.findAllPosts = catchAsync(async (req, res, next) => {
   // hacer una funcionalidad para traerse los post del usuario en sesion;
