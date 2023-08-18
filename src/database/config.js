@@ -1,4 +1,4 @@
-const { Sequelize } = require("sequelize");
+const { Sequelize } = require('sequelize');
 
 const db = new Sequelize({
   dialect: process.env.DB_DIALECT,
@@ -8,6 +8,12 @@ const db = new Sequelize({
   host: process.env.DB_HOST,
   port: +process.env.DB_PORT,
   logging: false,
+  dialectOptions: {
+    ssl: {
+      require: true, // Requiere conexión SSL/TLS
+      rejectUnauthorized: false, // Ignora los certificados autofirmados, utiliza un certificado CA válido en producción
+    },
+  },
 });
 
 module.exports = { db };
